@@ -14,4 +14,16 @@ describe("List", () => {
       L.chunk([1, 2, 3, 4], 2).should.be.eql([[1, 2], [3, 4]]);
     });
   });
+
+  describe("reserve", () => {
+    it("creates an Array with two elements equals to null", () => {
+      L.reserve(2).should.be.eql([null, null]);
+    });
+  });
+
+  describe("repeat", () => {
+    it("creates an Array with two elements equals to 10", () => {
+      L.repeat(2, 10).should.be.eql([10, 10]);
+    });
+  });
 });
