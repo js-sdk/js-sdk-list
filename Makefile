@@ -1,13 +1,4 @@
-BABEL=./node_modules/babel-cli/bin/babel.js
-BROWSERIFY=./node_modules/browserify/bin/cmd.js
-MOCHA=./node_modules/mocha/bin/mocha
-
-CFLAGS=--plugins transform-es2015-modules-umd
-TEST_CFLAGS=--compilers js:babel-register --require should
-
-ifeq ("$(DEV)", "1")
-TEST_CFLAGS+= -w
-endif
+include builder/compile.mk
 
 pre-build:
 	-mkdir -p lib
@@ -22,9 +13,9 @@ dist/list.js: src/index.js
 dist/list.min.js: src/index.js
 	$(BABEL) $(CFLAGS) --minified $< -o $@
 
-compile: pre-build dist/list.js dist/list.min.js
+dist-all: pre-build dist/list.js dist/list.min.js
 
-all: compile lib/list.js
+all: test dist-all lib/list.js
 
 test:
 	$(MOCHA) $(TEST_CFLAGS) tests/*.js
