@@ -1,6 +1,6 @@
 {
   "name": "js-sdk-list",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "Simple list utility.",
   "main": "./lib/list.js",
   "repository": "https://github.com/js-sdk/js-sdk-list",
