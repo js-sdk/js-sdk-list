@@ -17,9 +17,6 @@ dist-all: pre-build dist/list.js dist/list.min.js
 
 all: test dist-all lib/list.js
 
-test:
-	$(MOCHA) $(TEST_CFLAGS) tests/*.js
-
 clean:
 	rm -rf lib dist
 
